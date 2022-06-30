@@ -43,11 +43,11 @@ export const todoReducer = createReducer(initialState, (builder) => {
       });
     })
     .addCase(del, (state, action) => {
-      state.todos.filter((item, id) => {
-        if (id === action.payload) {
-          return !item;
-        }
-        return item;
-      })
+      state.todos = state.todos.filter((item, id) => {
+            if (id === action.payload) {
+              return false;
+            }
+            return true;
+          })
     });
 });
